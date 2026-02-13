@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<nav style="width: 4rem;">
+    <a href="/">&larr; Back</a>
+</nav>
+<div class="grid-wrapper">
+    <h1 class="grid1">{{drink.drinks[0].name}}</h1>
+    <img src="{{drink.drinks[0].image}}" width="50%" class="grid2">
+    <div class="grid3">
+        <h2>Instructions:</h2>
+        {{drink.drinks[0].instructions}}
+    </div>
+    <div class="grid4">
+        <h2>Ingredients</h2>
+        <ol>
+        {% for ing in drink.drinks[0].ingredients %}
+            <li>{{ing}}</li>
+        {% endfor %}
+        </ol>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% block content %}
+
+
+<div class="main-results">
+    {% if result.drinks %}
+    <h1>Results:</h1>
+    <table>
+        <th class="img"></th>
+        <th class="name"></th>
+        <th class="ingredients"></th>
+        {% for drink in result.drinks %}
+                <tr>
+                    <td><img src="{{drink.image}}" alt="{{drink.name}}" width="80rem" height="80rem"></td>
+                    <td><p>{{drink.name}}</p></td>
+                    <td>
+                        <div class="ingredients">
+                        {% for ing in drink.ingredients %}
+                        <p>{{ing}}</p>
+                        {% endfor %}
+                        </div>
+                    </td>
+                    <td>
+                        <form method="POST">
+                            <input type="hidden" name="id" value="{{drink.id}}">
+                            <button type="submit">Show Details</button>
+                        </form>
+                    </td>
+                </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h1>No Results Found!</h1>
+    {% endif %}
+    
+</div>
+
+
+
+
+{% endblock %}
+
